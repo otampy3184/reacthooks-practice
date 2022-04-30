@@ -14,11 +14,41 @@
 - TODO一覧を状態別に表示させる
 - タイトルとTODOリストをコンポーネント化する
 - モックサーバーと通信するtodo.jsoを作成する
-- TODOを種痘、追加、更新、削除するカスタムフック「useTODO()」を作成する
+- TODOを取得、追加、更新、削除するカスタムフック「useTODO()」を作成する
 - TODOを「useTODO()」カスタムフックから取得する
 - 新規TODOの追加機能を実装する
 - TODOリストのアイテムに設置したボタンの機能を実装する
 - コンポーネントごとに別ファイルに切り分ける
+
+## 作成するコンポーネント一覧
+コンポーネントとしては以下の５つを実装する
+1. TodoTitle.js
+- Todoのタイトルを保持するコンポーネント
+- hooksのメモ機能を使って、再レンダリングを行わないようにさせている
+
+2. TodoItem.js
+- Todoの各アイテムの情報を担当するコンポーネント
+- Todoの完了状態などを管理し、完了したタスクについてはdone状態にできるようにする
+
+3. TodoAdd.js
+- 新しいTodoの追加を担当するコンポーネント
+- ボタン機能として実装
+
+4. TodoList.js
+- Todoの一覧取得を担当するコンポーネント
+
+5. App.js
+- 親コンポーネント
+
+## カスタムhooks『useTodo』
+カスタムフックスとしてuseTodo()を作成する
+機能としては以下の3つ
+
+1. toggleTodoListItemStatus
+2. addTodoListItem
+3. deleteTodoListItem
+
+ 
 
 # Getting Started with Create React App
 
