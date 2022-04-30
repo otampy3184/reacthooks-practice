@@ -1,3 +1,25 @@
+# Reactを用いたTODOアプリを作ってみる
+ベースはcreate react appを使う
+
+## TODOアプリの仕様
+アプリ全体の大まかな仕様は以下
+- TODOの状態別(完了/未完了)に一覧を表示する
+- TODOの追加ができる
+- TODOの削除ができる
+- TODOのタスク別に状態の変更ができる
+- モックサーバーでTODOの状態を管理できる
+
+## 開発の大まかな流れ
+- モックサーバーと通信してTODOを取得する
+- TODO一覧を状態別に表示させる
+- タイトルとTODOリストをコンポーネント化する
+- モックサーバーと通信するtodo.jsoを作成する
+- TODOを種痘、追加、更新、削除するカスタムフック「useTODO()」を作成する
+- TODOを「useTODO()」カスタムフックから取得する
+- 新規TODOの追加機能を実装する
+- TODOリストのアイテムに設置したボタンの機能を実装する
+- コンポーネントごとに別ファイルに切り分ける
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
