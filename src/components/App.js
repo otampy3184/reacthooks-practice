@@ -28,11 +28,39 @@ function App() {
   // console.logでコンソールログに取得したTODOのリストを表示してみる
   console.log("TODOリスト: ", todoList);
 
+  // fileterの機能を使って、未完了のタスクのみを抽出する
+  const inCompletedList = todoList.filter((todo) => {
+    return !todo.done;
+  });
+
+  // console.logで未完了タスクを表示する
+  console.log("未完了タスク", inCompletedList);
+
+  // filterを使って、完了状態のタスクのみを抽出する
+  const completedList = todoList.filter((todo0) => {
+    return todo.done;
+  });
+
+  // console.logで完了状態のタスクを表示する
+  console.log("完了タスク", completedList);
+
   return (
     <>
       <h1>TODO進捗管理</h1>
       <textarea />
       <button>+ TODOを追加</button>
+      <h2>未完了TODOリスト</h2>
+      <ul>
+        {inCompletedList.map((todo) =>(
+          <li key={todo.id}>
+            {todo.content}
+            <button>
+              {todo.done ? "未完了リストへ" : "完了リストへ"}
+            </button>
+            <button>削除</button>
+          </li>
+        ))}
+      </ul>
       <h2>TODOリスト</h2>
       <ul>
         {todoList.map((todo) => (
