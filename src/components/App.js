@@ -61,6 +61,14 @@ function App() {
           </li>
         ))}
       </ul>
+      <h2>完了TODOリスト</h2>
+      <ul>
+        {completedList.map((todo) => (
+          <li key={todo.id}>
+            {todo.content}
+          </li>
+        ))}
+      </ul>
       <h2>TODOリスト</h2>
       <ul>
         {todoList.map((todo) => (
