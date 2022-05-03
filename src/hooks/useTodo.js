@@ -1,0 +1,54 @@
+import { useState, useEffect } from "react";
+
+import { ulid } from "ulid";
+import { updateTodoData } from "../../../references/react-reacthooks-lesson/src/apis/todos";
+
+import * as todoData from "../apis/todos";
+
+export const useTodo = () => {
+    const [todoList, setTodoList] = useState([]);
+
+    useEffect(() => {
+        todoData.getAllTodosData().then((todo) => {
+            setTodoList([...todo].reverse());
+        });
+    }, []);
+
+    const toggleTodoListItemStatus = (id, done) => {
+        const todoItem = todoList.find((item) => item.id === id);
+        const newTodoItem = {...todoItem, done: !done};
+        todoData.updatedTodoData(id, newTodoItem).then((updateTodo) => {
+            const newTodoList = todoList.map((item) => 
+                item.id !== updateTodo.id ? item : updateTodo
+            );
+        setTodoList(newTodoList);
+        });
+    };
+
+    const addTodoListItem = (todoContent) => {
+        const newTodoItem = {
+            content: todoContent,
+            id: ulid(),
+            done: false
+        };
+        return todoData.addTodoData(newTodoItem).then((addTodo) => {
+            setTodoList([addTodo, ...todoList]);
+        });
+    };
+
+    const deleteListItem = (id) => {
+        todoData.deleteTodoData(id).then((deleteListItemId) => {
+            const newTodoList = todoList.filter(
+                (item) => item.id !== deleteListItemId
+            );
+            setTodoList(newTodoList);
+        });
+    };
+
+    return {
+        todoList,
+        toggleTodoListItemStatus,
+        addTodoListItem,
+        deleteTodoListItem
+    };
+};
