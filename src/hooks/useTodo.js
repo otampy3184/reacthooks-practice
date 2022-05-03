@@ -49,6 +49,6 @@ export const useTodo = () => {
         todoList,
         toggleTodoListItemStatus,
         addTodoListItem,
-        deleteTodoListItem
+        deleteListItem
     };
 };
