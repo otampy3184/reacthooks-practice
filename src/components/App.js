@@ -37,7 +37,7 @@ function App() {
   console.log("未完了タスク", inCompletedList);
 
   // filterを使って、完了状態のタスクのみを抽出する
-  const completedList = todoList.filter((todo0) => {
+  const completedList = todoList.filter((todo) => {
     return todo.done;
   });
 
@@ -57,15 +57,22 @@ function App() {
             <button>
               {todo.done ? "未完了リストへ" : "完了リストへ"}
             </button>
+            {/*現時点では削除ボタンは機能していない*/}
             <button>削除</button>
           </li>
         ))}
       </ul>
+
       <h2>完了TODOリスト</h2>
       <ul>
         {completedList.map((todo) => (
           <li key={todo.id}>
             {todo.content}
+            <button>
+              {todo.done ? "未完了リストへ" : "完了リストへ"}
+            </button>
+            {/*現時点では削除ボタンは機能していない*/}
+            <button>削除</button>
           </li>
         ))}
       </ul>
